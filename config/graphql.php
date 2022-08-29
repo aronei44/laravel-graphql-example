@@ -76,18 +76,36 @@ return [
         'default' => [
             'query' => [
                 // ExampleQuery::class,
-                \App\GraphQL\Queries\TaskQuery::class,
-                \App\GraphQL\Queries\TasksQuery::class,
             ],
             'mutation' => [
                 // ExampleMutation::class,
-                \App\GraphQL\Mutations\CreateTaskMutation::class,
-                \App\GraphQL\Mutations\UpdateTaskMutation::class,
             ],
             // The types only available in this schema
             'types' => [
                 // ExampleType::class,
+            ],
+
+            // Laravel HTTP middleware
+            'middleware' => null,
+
+            // Which HTTP methods to support; must be given in UPPERCASE!
+            'method' => ['GET', 'POST'],
+
+            // An array of middlewares, overrides the global ones
+            'execution_middleware' => null,
+        ],
+        'task' => [
+            'query' => [
+                \App\GraphQL\Queries\TaskQuery::class,
+                \App\GraphQL\Queries\TasksQuery::class,
+            ],
+            'mutation' => [
+                \App\GraphQL\Mutations\CreateTaskMutation::class,
+                \App\GraphQL\Mutations\UpdateTaskMutation::class,
+            ],
+            'types' => [
                 \App\GraphQL\Types\TaskType::class,
+                // ExampleType::class,
             ],
 
             // Laravel HTTP middleware
